@@ -3,7 +3,7 @@
 #
 #Verificando argumentos de entrada
 #
-if [ $# -ne]; then
+if [ $# -ne ]; then
         echo "Error, proporciona un ID"
         exit 1
 fi
@@ -12,9 +12,9 @@ PID=$1
 echo "ID DEL PROCESO: $1"
 
 #Luego tiene que vertificar que existe
-if ! ps -p $PID > /dev/null 2>$1
-        echo "El proceso con PID $PID no existe"
-        exit 1
+if ! ps -p $PID > /dev/null 2>&1; then
+	echo "El proceso con PID $PID no existe"
+	exit 1
 fi
 
 
